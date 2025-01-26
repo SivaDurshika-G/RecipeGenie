@@ -3,56 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RecipeGenie 🍴</title>
+  <title>RecipeGenie</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="app">
+  <div class="container">
     <header>
-      <h1>RecipeGenie 🍲</h1>
-      <button id="theme-toggle">Switch to Dark Mode</button>
+      <h1>Welcome to <span class="highlight">RecipeGenie</span> 🍳✨</h1>
+      <p>Your smart recipe assistant! Discover, save, and manage your favorite dishes effortlessly.</p>
     </header>
 
-    <!-- Search and Filter -->
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search for a recipe..." />
-      <select id="filter">
-        <option value="all">All Recipes</option>
-        <option value="quick">Quick Recipes</option>
-        <option value="vegetarian">Vegetarian</option>
-      </select>
-    </div>
-
-    <!-- Add Recipe Form -->
-    <div id="add-recipe">
-      <h2>Add Your Recipe</h2>
-      <form id="recipe-form">
-        <input type="text" id="recipe-name" placeholder="Recipe Name" required />
-        <textarea id="recipe-instructions" placeholder="Instructions" required></textarea>
-        <input type="url" id="recipe-image" placeholder="Image URL (Optional)" />
-        <label>
-          <input type="checkbox" id="recipe-quick" /> Quick Recipe
+    <section id="search-section">
+      <input type="text" id="search-bar" placeholder="Search for recipes..." />
+      <div class="filters">
+        <label for="quick-filter">
+          <input type="checkbox" id="quick-filter" /> Quick Recipes
         </label>
-        <label>
-          <input type="checkbox" id="recipe-vegetarian" /> Vegetarian
+        <label for="vegetarian-filter">
+          <input type="checkbox" id="vegetarian-filter" /> Vegetarian
         </label>
-        <button type="submit">Add Recipe</button>
-      </form>
-    </div>
+      </div>
+    </section>
 
-    <!-- Recipe Container -->
-    <div id="recipe-container"></div>
+    <section id="recipe-container">
+      <!-- Recipe cards will be displayed here -->
+    </section>
 
-    <!-- Pagination -->
-    <div id="pagination"></div>
-
-    <!-- Saved Recipes -->
-    <div id="saved-recipes">
-      <h2>Saved Recipes</h2>
+    <section id="saved-recipes">
+      <h2>Saved Recipes:</h2>
       <ul id="saved-recipes-list"></ul>
-      <button id="clear-saved">Clear Saved Recipes</button>
-    </div>
+      <button id="clear-saved">Clear All Saved</button>
+    </section>
   </div>
+
+  <button id="theme-toggle">Switch to Dark Mode</button>
+
   <script src="app.js"></script>
 </body>
 </html>
