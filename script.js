@@ -1,4 +1,4 @@
-// Sample Recipes (Title, Ingredients, Method)
+// List of 25 recipes with ingredients, method, and country of origin
 const recipes = [
     {
         title: "Spaghetti Carbonara",
@@ -61,135 +61,155 @@ const recipes = [
         country: "South Korea"
     },
     {
-        title: "Churros",
-        ingredients: ["Flour", "Water", "Salt", "Sugar", "Cinnamon"],
-        method: "Fry dough, coat with cinnamon and sugar.",
-        country: "Spain"
+        title: "Pad Thai",
+        ingredients: ["Rice Noodles", "Shrimp", "Peanuts", "Egg", "Fish Sauce"],
+        method: "Stir fry noodles with shrimp, add peanuts, and sauce.",
+        country: "Thailand"
+    },
+    {
+        title: "Fried Chicken",
+        ingredients: ["Chicken", "Flour", "Buttermilk", "Paprika", "Salt"],
+        method: "Coat chicken in flour and spices, deep fry until golden.",
+        country: "United States"
     },
     {
         title: "Moussaka",
-        ingredients: ["Eggplant", "Ground Lamb", "Tomato", "Onion", "Bechamel Sauce"],
-        method: "Layer eggplant with lamb and tomato, top with bechamel sauce, bake.",
+        ingredients: ["Eggplant", "Ground Beef", "Tomato Sauce", "Bechamel Sauce", "Cheese"],
+        method: "Layer eggplant with beef and tomato sauce, top with béchamel and cheese.",
         country: "Greece"
     },
     {
         title: "Ramen",
-        ingredients: ["Noodles", "Broth", "Pork", "Egg", "Vegetables"],
-        method: "Prepare broth, cook noodles, assemble with toppings.",
+        ingredients: ["Ramen Noodles", "Broth", "Pork Belly", "Egg", "Nori"],
+        method: "Cook ramen noodles, serve with broth, pork belly, and boiled egg.",
         country: "Japan"
     },
     {
-        title: "Falafel",
-        ingredients: ["Chickpeas", "Onions", "Garlic", "Parsley", "Cumin"],
-        method: "Blend ingredients, form balls, fry.",
-        country: "Middle Eastern countries"
+        title: "Fish and Chips",
+        ingredients: ["Fish Fillets", "Potatoes", "Flour", "Beer", "Tartar Sauce"],
+        method: "Coat fish in batter, deep fry, serve with fried potatoes.",
+        country: "United Kingdom"
     },
     {
-        title: "Banh Mi",
-        ingredients: ["Baguette", "Pork", "Pickled Vegetables", "Cilantro", "Chili"],
-        method: "Fill baguette with pork, pickled vegetables, and herbs.",
+        title: "Shawarma",
+        ingredients: ["Lamb", "Garlic", "Yogurt", "Spices", "Pita Bread"],
+        method: "Marinate lamb in yogurt and spices, grill, serve in pita.",
+        country: "Lebanon"
+    },
+    {
+        title: "Ceviche",
+        ingredients: ["Fish", "Lime", "Onion", "Cilantro", "Chili"],
+        method: "Marinate fish in lime juice, mix with onions, cilantro, and chili.",
+        country: "Peru"
+    },
+    {
+        title: "Pho",
+        ingredients: ["Beef", "Rice Noodles", "Herbs", "Broth", "Lime"],
+        method: "Cook rice noodles, serve with beef and herbs in hot broth.",
         country: "Vietnam"
     },
     {
-        title: "Shakshuka",
-        ingredients: ["Eggs", "Tomatoes", "Onions", "Peppers", "Spices"],
-        method: "Cook tomatoes, onions, and peppers, crack eggs in the sauce, cook.",
-        country: "Israel"
+        title: "Biryani",
+        ingredients: ["Rice", "Chicken", "Yogurt", "Spices", "Fried Onions"],
+        method: "Layer rice with marinated chicken and spices, cook together.",
+        country: "India"
     },
     {
-        title: "Pizza Margherita",
-        ingredients: ["Pizza Dough", "Tomato Sauce", "Mozzarella Cheese", "Basil", "Olive Oil"],
-        method: "Top pizza dough with sauce, cheese, and basil, bake.",
+        title: "Falafel",
+        ingredients: ["Chickpeas", "Garlic", "Parsley", "Tahini", "Cumin"],
+        method: "Blend chickpeas and spices, form balls, fry until crispy.",
+        country: "Middle East"
+    },
+    {
+        title: "Risotto",
+        ingredients: ["Arborio Rice", "Chicken Broth", "Parmesan", "Mushrooms", "Garlic"],
+        method: "Cook rice in broth, stir in cheese and mushrooms.",
         country: "Italy"
     },
     {
-        title: "Fried Chicken",
-        ingredients: ["Chicken", "Flour", "Eggs", "Spices", "Oil"],
-        method: "Coat chicken with flour and spices, fry until crispy.",
+        title: "Chili Con Carne",
+        ingredients: ["Ground Beef", "Beans", "Tomatoes", "Chili Powder", "Garlic"],
+        method: "Cook beef with beans, tomatoes, and chili powder.",
         country: "United States"
     },
     {
         title: "Tiramisu",
-        ingredients: ["Ladyfingers", "Mascarpone Cheese", "Coffee", "Cocoa Powder", "Eggs"],
-        method: "Layer ladyfingers soaked in coffee with mascarpone, chill, and top with cocoa powder.",
+        ingredients: ["Ladyfingers", "Mascarpone", "Coffee", "Cocoa Powder", "Sugar"],
+        method: "Layer ladyfingers with mascarpone and coffee mixture, dust with cocoa.",
         country: "Italy"
     },
     {
-        title: "Tom Yum Soup",
-        ingredients: ["Shrimp", "Lemongrass", "Lime Leaves", "Chili", "Mushrooms", "Fish Sauce"],
-        method: "Boil shrimp and herbs, add mushrooms and fish sauce.",
-        country: "Thailand"
+        title: "Goulash",
+        ingredients: ["Beef", "Paprika", "Onions", "Tomatoes", "Potatoes"],
+        method: "Cook beef with onions and paprika, add tomatoes and potatoes.",
+        country: "Hungary"
     },
     {
-        title: "Samosa",
-        ingredients: ["Potatoes", "Peas", "Spices", "Pastry Shells"],
-        method: "Stuff pastry shells with spiced potatoes and peas, deep fry.",
-        country: "India"
-    },
-    {
-        title: "Burrito",
-        ingredients: ["Flour Tortilla", "Rice", "Beans", "Ground Beef", "Cheese", "Sour Cream"],
-        method: "Fill tortilla with rice, beans, beef, and toppings, roll up.",
-        country: "Mexico"
-    },
-    {
-        title: "Beef Wellington",
-        ingredients: ["Beef", "Mushrooms", "Puff Pastry", "Prosciutto", "Eggs"],
-        method: "Sear beef, wrap in prosciutto and mushrooms, cover in pastry, bake.",
-        country: "United Kingdom"
-    },
-    {
-        title: "Babka",
-        ingredients: ["Flour", "Eggs", "Sugar", "Cinnamon", "Chocolate"],
-        method: "Knead dough, fill with cinnamon or chocolate, bake.",
-        country: "Poland"
-    },
-    {
-        title: "Pad Thai",
-        ingredients: ["Rice Noodles", "Shrimp", "Tofu", "Peanuts", "Egg", "Tamarind Paste"],
-        method: "Fry noodles with shrimp, tofu, and eggs, toss with tamarind sauce.",
-        country: "Thailand"
+        title: "Baklava",
+        ingredients: ["Phyllo Dough", "Nuts", "Honey", "Sugar", "Butter"],
+        method: "Layer phyllo dough with nuts and honey, bake and cut into pieces.",
+        country: "Turkey"
     },
     {
         title: "Pavlova",
-        ingredients: ["Egg Whites", "Sugar", "Vanilla", "Fruit"],
-        method: "Whisk egg whites and sugar into a meringue, bake, top with fruit.",
+        ingredients: ["Egg Whites", "Sugar", "Cream", "Fruits"],
+        method: "Whisk egg whites with sugar, bake into a meringue, top with cream and fruits.",
         country: "New Zealand"
     },
     {
-        title: "Biryani",
-        ingredients: ["Rice", "Chicken", "Spices", "Yogurt", "Onions"],
-        method: "Layer marinated chicken with rice and spices, cook together.",
-        country: "India"
+        title: "Empanada",
+        ingredients: ["Dough", "Ground Beef", "Onion", "Olives", "Egg"],
+        method: "Fill dough with beef mixture, fold and bake.",
+        country: "Argentina"
     },
     {
-        title: "Fish and Chips",
-        ingredients: ["Fish", "Potatoes", "Flour", "Beer", "Spices"],
-        method: "Batter fish and fry, serve with fries.",
-        country: "United Kingdom"
+        title: "Cheeseburger",
+        ingredients: ["Ground Beef", "Cheese", "Lettuce", "Tomato", "Buns"],
+        method: "Cook beef patty, place cheese on top, assemble with lettuce, tomato, and buns.",
+        country: "United States"
+    },
+    {
+        title: "Lasagna",
+        ingredients: ["Pasta Sheets", "Ground Beef", "Tomato Sauce", "Cheese", "Béchamel Sauce"],
+        method: "Layer pasta with beef, sauce, and cheese, bake until golden.",
+        country: "Italy"
+    },
+    {
+        title: "Jollof Rice",
+        ingredients: ["Rice", "Tomatoes", "Onion", "Pepper", "Spices"],
+        method: "Cook rice with a tomato-based sauce and spices.",
+        country: "Nigeria"
     }
 ];
 
-// Function to display the recipes
-function displayRecipes(filteredRecipes) {
-    const recipeCardsContainer = document.getElementById('recipe-cards');
-    recipeCardsContainer.innerHTML = ""; // Clear current recipes
+const recipeListElement = document.getElementById('recipe-list');
 
-    filteredRecipes.forEach(recipe => {
-        const card = document.createElement('div');
-        card.classList.add('recipe-card');
-        card.innerHTML = `
-            <h3>${recipe.title}</h3>
-            <h4>Ingredients:</h4>
-            <ul>
-                ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
-            </ul>
-            <h4>Cooking Method:</h4>
-            <p>${recipe.method}</p>
+// Function to render recipe cards
+function renderRecipes() {
+    recipes.forEach(recipe => {
+        const recipeCard = document.createElement('div');
+        recipeCard.classList.add('recipe-card');
+
+        recipeCard.innerHTML = `
+            <h2 class="recipe-title">${recipe.title}</h2>
+            <p class="recipe-country">Famous in: ${recipe.country}</p>
+            <div class="ingredients">
+                <h3>Ingredients:</h3>
+                <ul>
+                    ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                </ul>
+            </div>
+            <div class="method">
+                <h3>Cooking Method:</h3>
+                <ul>
+                    <li>${recipe.method}</li>
+                </ul>
+            </div>
+            <button onclick="alert('Recipe Saved!')">Save Recipe</button>
         `;
-        recipeCardsContainer.appendChild(card);
+
+        recipeListElement.appendChild(recipeCard);
     });
 }
 
-// Display all recipes initially
-displayRecipes(recipes);
+renderRecipes(); // Call the function to render recipes on page load
