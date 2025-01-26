@@ -1,153 +1,195 @@
+// Sample Recipes (Title, Ingredients, Method)
 const recipes = [
     {
         title: "Spaghetti Carbonara",
-        description: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
         ingredients: ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
-        instructions: "Boil the pasta, cook pancetta, mix eggs and cheese, combine.",
-        isVegetarian: false,
-        isQuick: true,
-        rating: 4
+        method: "Boil the pasta, cook pancetta, mix eggs and cheese, combine.",
+        country: "Italy"
     },
     {
         title: "Vegetable Stir Fry",
-        description: "A healthy and quick vegetable stir-fry packed with flavors.",
         ingredients: ["Broccoli", "Carrots", "Bell Pepper", "Soy Sauce", "Ginger"],
-        instructions: "Stir fry the vegetables, add soy sauce and ginger, cook for 5 minutes.",
-        isVegetarian: true,
-        isQuick: true,
-        rating: 5
+        method: "Stir fry the vegetables, add soy sauce and ginger, cook for 5 minutes.",
+        country: "China"
     },
     {
         title: "Chicken Curry",
-        description: "A flavorful chicken curry with spices and coconut milk.",
         ingredients: ["Chicken", "Coconut Milk", "Curry Powder", "Onion", "Garlic"],
-        instructions: "Cook chicken with spices, add coconut milk, simmer for 20 minutes.",
-        isVegetarian: false,
-        isQuick: false,
-        rating: 3
+        method: "Cook chicken with spices, add coconut milk, simmer for 20 minutes.",
+        country: "India"
+    },
+    {
+        title: "Sushi",
+        ingredients: ["Rice", "Nori (seaweed)", "Fish", "Soy Sauce", "Wasabi"],
+        method: "Cook rice, spread over nori, add fish, roll, and slice.",
+        country: "Japan"
+    },
+    {
+        title: "Tacos",
+        ingredients: ["Taco Shells", "Ground Beef", "Lettuce", "Tomato", "Cheese", "Sour Cream"],
+        method: "Cook beef, fill taco shells with beef and toppings.",
+        country: "Mexico"
+    },
+    {
+        title: "Poutine",
+        ingredients: ["Fries", "Cheese Curds", "Gravy"],
+        method: "Cook fries, top with cheese curds, pour hot gravy over.",
+        country: "Canada"
+    },
+    {
+        title: "Paella",
+        ingredients: ["Rice", "Seafood", "Saffron", "Peas", "Chicken", "Olives"],
+        method: "Cook rice, add saffron, chicken, seafood, and peas, simmer.",
+        country: "Spain"
+    },
+    {
+        title: "Croissant",
+        ingredients: ["Flour", "Butter", "Yeast", "Milk", "Sugar"],
+        method: "Roll out dough, fold in butter, let rise, bake.",
+        country: "France"
+    },
+    {
+        title: "Bangers and Mash",
+        ingredients: ["Sausages", "Mashed Potatoes", "Gravy"],
+        method: "Cook sausages, mash potatoes, top with gravy.",
+        country: "United Kingdom"
+    },
+    {
+        title: "Kimchi",
+        ingredients: ["Cabbage", "Garlic", "Ginger", "Chili Pepper", "Fish Sauce"],
+        method: "Ferment cabbage with garlic, ginger, and chili pepper.",
+        country: "South Korea"
+    },
+    {
+        title: "Churros",
+        ingredients: ["Flour", "Water", "Salt", "Sugar", "Cinnamon"],
+        method: "Fry dough, coat with cinnamon and sugar.",
+        country: "Spain"
+    },
+    {
+        title: "Moussaka",
+        ingredients: ["Eggplant", "Ground Lamb", "Tomato", "Onion", "Bechamel Sauce"],
+        method: "Layer eggplant with lamb and tomato, top with bechamel sauce, bake.",
+        country: "Greece"
+    },
+    {
+        title: "Ramen",
+        ingredients: ["Noodles", "Broth", "Pork", "Egg", "Vegetables"],
+        method: "Prepare broth, cook noodles, assemble with toppings.",
+        country: "Japan"
+    },
+    {
+        title: "Falafel",
+        ingredients: ["Chickpeas", "Onions", "Garlic", "Parsley", "Cumin"],
+        method: "Blend ingredients, form balls, fry.",
+        country: "Middle Eastern countries"
+    },
+    {
+        title: "Banh Mi",
+        ingredients: ["Baguette", "Pork", "Pickled Vegetables", "Cilantro", "Chili"],
+        method: "Fill baguette with pork, pickled vegetables, and herbs.",
+        country: "Vietnam"
+    },
+    {
+        title: "Shakshuka",
+        ingredients: ["Eggs", "Tomatoes", "Onions", "Peppers", "Spices"],
+        method: "Cook tomatoes, onions, and peppers, crack eggs in the sauce, cook.",
+        country: "Israel"
+    },
+    {
+        title: "Pizza Margherita",
+        ingredients: ["Pizza Dough", "Tomato Sauce", "Mozzarella Cheese", "Basil", "Olive Oil"],
+        method: "Top pizza dough with sauce, cheese, and basil, bake.",
+        country: "Italy"
+    },
+    {
+        title: "Fried Chicken",
+        ingredients: ["Chicken", "Flour", "Eggs", "Spices", "Oil"],
+        method: "Coat chicken with flour and spices, fry until crispy.",
+        country: "United States"
+    },
+    {
+        title: "Tiramisu",
+        ingredients: ["Ladyfingers", "Mascarpone Cheese", "Coffee", "Cocoa Powder", "Eggs"],
+        method: "Layer ladyfingers soaked in coffee with mascarpone, chill, and top with cocoa powder.",
+        country: "Italy"
+    },
+    {
+        title: "Tom Yum Soup",
+        ingredients: ["Shrimp", "Lemongrass", "Lime Leaves", "Chili", "Mushrooms", "Fish Sauce"],
+        method: "Boil shrimp and herbs, add mushrooms and fish sauce.",
+        country: "Thailand"
+    },
+    {
+        title: "Samosa",
+        ingredients: ["Potatoes", "Peas", "Spices", "Pastry Shells"],
+        method: "Stuff pastry shells with spiced potatoes and peas, deep fry.",
+        country: "India"
+    },
+    {
+        title: "Burrito",
+        ingredients: ["Flour Tortilla", "Rice", "Beans", "Ground Beef", "Cheese", "Sour Cream"],
+        method: "Fill tortilla with rice, beans, beef, and toppings, roll up.",
+        country: "Mexico"
+    },
+    {
+        title: "Beef Wellington",
+        ingredients: ["Beef", "Mushrooms", "Puff Pastry", "Prosciutto", "Eggs"],
+        method: "Sear beef, wrap in prosciutto and mushrooms, cover in pastry, bake.",
+        country: "United Kingdom"
+    },
+    {
+        title: "Babka",
+        ingredients: ["Flour", "Eggs", "Sugar", "Cinnamon", "Chocolate"],
+        method: "Knead dough, fill with cinnamon or chocolate, bake.",
+        country: "Poland"
+    },
+    {
+        title: "Pad Thai",
+        ingredients: ["Rice Noodles", "Shrimp", "Tofu", "Peanuts", "Egg", "Tamarind Paste"],
+        method: "Fry noodles with shrimp, tofu, and eggs, toss with tamarind sauce.",
+        country: "Thailand"
+    },
+    {
+        title: "Pavlova",
+        ingredients: ["Egg Whites", "Sugar", "Vanilla", "Fruit"],
+        method: "Whisk egg whites and sugar into a meringue, bake, top with fruit.",
+        country: "New Zealand"
+    },
+    {
+        title: "Biryani",
+        ingredients: ["Rice", "Chicken", "Spices", "Yogurt", "Onions"],
+        method: "Layer marinated chicken with rice and spices, cook together.",
+        country: "India"
+    },
+    {
+        title: "Fish and Chips",
+        ingredients: ["Fish", "Potatoes", "Flour", "Beer", "Spices"],
+        method: "Batter fish and fry, serve with fries.",
+        country: "United Kingdom"
     }
 ];
 
-let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
-let shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
-let currentPage = 1;
-const recipesPerPage = 2;
-
-function displayRecipes() {
-    const startIndex = (currentPage - 1) * recipesPerPage;
-    const endIndex = startIndex + recipesPerPage;
-    const currentRecipes = recipes.slice(startIndex, endIndex);
+// Function to display the recipes
+function displayRecipes(filteredRecipes) {
     const recipeCardsContainer = document.getElementById('recipe-cards');
-    recipeCardsContainer.innerHTML = "";
-
-    currentRecipes.forEach(recipe => {
-        const card = document.createElement('div');
-        card.classList.add('recipe-card');
-        card.innerHTML = `
-            <h3>${recipe.title}</h3>
-            <p>${recipe.description}</p>
-            <button class="view-details" onclick="showRecipeDetails('${recipe.title}')">View Details</button>
-            <button class="save-recipe" onclick="saveRecipe('${recipe.title}')">Save Recipe</button>
-        `;
-        recipeCardsContainer.appendChild(card);
-    });
-
-    document.getElementById('page-number').textContent = `Page ${currentPage}`;
-    document.getElementById('prev-page').disabled = currentPage === 1;
-    document.getElementById('next-page').disabled = currentPage * recipesPerPage >= recipes.length;
-}
-
-document.getElementById('prev-page').addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        displayRecipes();
-    }
-});
-
-document.getElementById('next-page').addEventListener('click', () => {
-    if (currentPage * recipesPerPage < recipes.length) {
-        currentPage++;
-        displayRecipes();
-    }
-});
-
-// Search Functionality
-document.getElementById('search-button').addEventListener('click', () => {
-    const searchQuery = document.getElementById('search-bar').value.toLowerCase();
-    const filteredRecipes = recipes.filter(recipe => recipe.title.toLowerCase().includes(searchQuery));
-    displayFilteredRecipes(filteredRecipes);
-});
-
-// Display Filtered Recipes based on Search
-function displayFilteredRecipes(filteredRecipes) {
-    const recipeCardsContainer = document.getElementById('recipe-cards');
-    recipeCardsContainer.innerHTML = "";
+    recipeCardsContainer.innerHTML = ""; // Clear current recipes
 
     filteredRecipes.forEach(recipe => {
         const card = document.createElement('div');
         card.classList.add('recipe-card');
         card.innerHTML = `
             <h3>${recipe.title}</h3>
-            <p>${recipe.description}</p>
-            <button class="view-details" onclick="showRecipeDetails('${recipe.title}')">View Details</button>
-            <button class="save-recipe" onclick="saveRecipe('${recipe.title}')">Save Recipe</button>
+            <h4>Ingredients:</h4>
+            <ul>
+                ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+            </ul>
+            <h4>Cooking Method:</h4>
+            <p>${recipe.method}</p>
         `;
         recipeCardsContainer.appendChild(card);
     });
 }
 
-// Show Recipe Details in Modal
-function showRecipeDetails(title) {
-    const recipe = recipes.find(r => r.title === title);
-    document.getElementById('recipe-title').textContent = recipe.title;
-    document.getElementById('recipe-description').textContent = recipe.description;
-    document.getElementById('recipe-ingredients').innerHTML = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
-    document.getElementById('recipe-instructions').textContent = recipe.instructions;
-
-    // Display Rating Stars
-    const ratingStars = document.querySelectorAll('#recipe-rating .rating');
-    ratingStars.forEach(star => {
-        if (parseInt(star.getAttribute('data-value')) <= recipe.rating) {
-            star.classList.add('selected');
-        } else {
-            star.classList.remove('selected');
-        }
-    });
-
-    document.getElementById('recipe-modal').style.display = 'block';
-}
-
-// Close Recipe Modal
-document.getElementById('close-modal').addEventListener('click', () => {
-    document.getElementById('recipe-modal').style.display = 'none';
-});
-
-// Save Recipe
-function saveRecipe(title) {
-    const recipe = recipes.find(r => r.title === title);
-    if (!savedRecipes.includes(recipe)) {
-        savedRecipes.push(recipe);
-        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-        updateSavedRecipesList();
-    }
-}
-
-// Update Saved Recipes List
-function updateSavedRecipesList() {
-    const savedRecipesList = document.getElementById('saved-recipes-list');
-    savedRecipesList.innerHTML = "";
-    savedRecipes.forEach(recipe => {
-        const listItem = document.createElement('li');
-        listItem.textContent = recipe.title;
-        savedRecipesList.appendChild(listItem);
-    });
-}
-
-// Clear Saved Recipes
-document.getElementById('clear-saved-recipes').addEventListener('click', () => {
-    savedRecipes = [];
-    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    updateSavedRecipesList();
-});
-
-displayRecipes();
+// Display all recipes initially
+displayRecipes(recipes);
