@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipeGenie 🍴</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>RecipeGenie 🍲</h1>
+      <button id="theme-toggle">Switch to Dark Mode</button>
+    </header>
+
+    <!-- Search and Filter -->
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search for a recipe..." />
+      <select id="filter">
+        <option value="all">All Recipes</option>
+        <option value="quick">Quick Recipes</option>
+        <option value="vegetarian">Vegetarian</option>
+      </select>
+    </div>
+
+    <!-- Add Recipe Form -->
+    <div id="add-recipe">
+      <h2>Add Your Recipe</h2>
+      <form id="recipe-form">
+        <input type="text" id="recipe-name" placeholder="Recipe Name" required />
+        <textarea id="recipe-instructions" placeholder="Instructions" required></textarea>
+        <input type="url" id="recipe-image" placeholder="Image URL (Optional)" />
+        <label>
+          <input type="checkbox" id="recipe-quick" /> Quick Recipe
+        </label>
+        <label>
+          <input type="checkbox" id="recipe-vegetarian" /> Vegetarian
+        </label>
+        <button type="submit">Add Recipe</button>
+      </form>
+    </div>
+
+    <!-- Recipe Container -->
+    <div id="recipe-container"></div>
+
+    <!-- Pagination -->
+    <div id="pagination"></div>
+
+    <!-- Saved Recipes -->
+    <div id="saved-recipes">
+      <h2>Saved Recipes</h2>
+      <ul id="saved-recipes-list"></ul>
+      <button id="clear-saved">Clear Saved Recipes</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
