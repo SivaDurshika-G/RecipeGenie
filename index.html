@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RecipeGenie 🍳</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecipeGenie 🍳</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Welcome to RecipeGenie 🍳</h1>
-        <div class="recipe-list" id="recipe-list"></div>
+  <div class="container">
+    <h1>Welcome to RecipeGenie 🍳</h1>
+    
+    <div class="add-recipe-form">
+      <input type="text" id="recipe-name" placeholder="Enter Recipe Name">
+      <input type="text" id="ingredients" placeholder="Enter Ingredients">
+      <textarea id="method" placeholder="Enter Cooking Method"></textarea>
+      <button onclick="addRecipe()">Add Recipe</button>
     </div>
 
-    <script src="scripts.js"></script>
-
+    <div class="recipe-box">
+      <!-- Recipes will be dynamically added here -->
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 </html>
