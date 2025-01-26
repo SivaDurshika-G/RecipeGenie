@@ -16,9 +16,9 @@ const recipes = [
 let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
 
 // Display recipes
-function displayRecipes(recipes) {
+function displayRecipes(filteredRecipes) {
   const container = document.getElementById('recipe-container');
-  container.innerHTML = recipes.map(recipe => `
+  container.innerHTML = filteredRecipes.map(recipe => `
     <div class="recipe-card">
       <h3>${recipe.name}</h3>
       <p>${recipe.instructions}</p>
@@ -67,6 +67,12 @@ document.getElementById('clear-saved').addEventListener('click', () => {
   updateSavedRecipes();
 });
 
-// Initialize
-displayRecipes(recipes);
-updateSavedRecipes();
+// Filter recipes
+document.getElementById('quick-filter').addEventListener('change', filterRecipes);
+document.getElementById('vegetarian-filter').addEventListener('change', filterRecipes);
+
+function filterRecipes() {
+  const quickFilter = document.getElementById('quick-filter').checked;
+  const vegetarianFilter = document.getElementById('vegetarian-filter').checked;
+
+  const filteredRecipes = recipes.filter(recipe
