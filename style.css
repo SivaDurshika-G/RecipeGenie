@@ -1,4 +1,3 @@
-/* General styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,85 +5,72 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f1f8e9;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .container {
-  text-align: center;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-}
-
-h1 {
-  font-size: 2.5em;
-  color: #4caf50;
-  margin-bottom: 20px;
-  animation: fadeIn 2s ease-out;
+  padding: 20px;
 }
 
 .recipe-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  color: #4CAF50;
+  margin-bottom: 20px;
 }
 
 .recipe-card {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1.5s ease-out;
-  position: relative;
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: scale(1.05);
 }
 
 .recipe-card h2 {
-  font-size: 1.5em;
   color: #333;
-  margin-bottom: 10px;
 }
 
 .recipe-card p {
-  font-size: 1em;
-  margin: 5px 0;
   color: #555;
+  margin: 5px 0;
 }
 
-.recipe-card p strong {
-  color: #4caf50;
-}
-
-@media (max-width: 768px) {
-  .recipe-card {
-    width: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .recipe-card {
-    width: 100%;
-  }
-}
-
-/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .recipe-box {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .recipe-card {
+    margin: 10px 0;
   }
 }
