@@ -1,78 +1,152 @@
-// Dark mode toggle functionality
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-  const isDark = document.body.classList.contains('dark');
-  themeToggle.textContent = isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-});
-
-// Mock Data for recipes
+// Example recipes for testing purposes
 const recipes = [
-  { id: 1, name: "Spaghetti Carbonara", quick: true, vegetarian: false, instructions: "Boil pasta, mix eggs, cook bacon." },
-  { id: 2, name: "Vegetable Stir Fry", quick: true, vegetarian: true, instructions: "Stir-fry veggies, add soy sauce." },
-  { id: 3, name: "Margherita Pizza", quick: false, vegetarian: true, instructions: "Make dough, add toppings, bake." },
+    {
+        title: "Spaghetti Carbonara",
+        description: "A classic Italian pasta dish made with eggs, cheese, pancetta, and pepper.",
+        ingredients: ["Spaghetti", "Eggs", "Pancetta", "Parmesan Cheese", "Black Pepper"],
+        instructions: "Boil the pasta, cook pancetta, mix eggs and cheese, combine.",
+        isVegetarian: false,
+        isQuick: true
+    },
+    {
+        title: "Vegetable Stir Fry",
+        description: "A healthy and quick vegetable stir-fry packed with flavors.",
+        ingredients: ["Broccoli", "Carrots", "Bell Pepper", "Soy Sauce", "Ginger"],
+        instructions: "Stir fry the vegetables, add soy sauce and ginger, cook for 5 minutes.",
+        isVegetarian: true,
+        isQuick: true
+    },
+    {
+        title: "Chicken Curry",
+        description: "A flavorful chicken curry with spices and coconut milk.",
+        ingredients: ["Chicken", "Coconut Milk", "Curry Powder", "Onion", "Garlic"],
+        instructions: "Cook chicken with spices, add coconut milk, simmer for 20 minutes.",
+        isVegetarian: false,
+        isQuick: false
+    }
+    // Add more recipes as needed
 ];
 
 let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || [];
+let shoppingList = JSON.parse(localStorage.getItem('shoppingList')) || [];
+let currentPage = 1;
+const recipesPerPage = 2;
 
-// Display recipes
-function displayRecipes(filteredRecipes) {
-  const container = document.getElementById('recipe-container');
-  container.innerHTML = filteredRecipes.map(recipe => `
-    <div class="recipe-card">
-      <h3>${recipe.name}</h3>
-      <p>${recipe.instructions}</p>
-      <button onclick="saveRecipe('${recipe.name}')">Save</button>
-      <button onclick="removeRecipe('${recipe.name}')">Remove</button>
-    </div>
-  `).join('');
+// Handle Pagination
+function displayRecipes() {
+    const startIndex = (currentPage - 1) * recipesPerPage;
+    const endIndex = startIndex + recipesPerPage;
+    const currentRecipes = recipes.slice(startIndex, endIndex);
+    const recipeCardsContainer = document.getElementById('recipe-cards');
+    recipeCardsContainer.innerHTML = "";
+
+    currentRecipes.forEach(recipe => {
+        const card = document.createElement('div');
+        card.classList.add('recipe-card');
+        card.innerHTML = `
+            <h3>${recipe.title}</h3>
+            <p>${recipe.description}</p>
+            <button class="view-details" onclick="showRecipeDetails('${recipe.title}')">View Details</button>
+            <button class="save-recipe" onclick="saveRecipe('${recipe.title}')">Save Recipe</button>
+        `;
+        recipeCardsContainer.appendChild(card);
+    });
+
+    document.getElementById('page-number').textContent = `Page ${currentPage}`;
+    document.getElementById('prev-page').disabled = currentPage === 1;
+    document.getElementById('next-page').disabled = currentPage * recipesPerPage >= recipes.length;
 }
 
-// Save recipe to localStorage
-function saveRecipe(name) {
-  if (!savedRecipes.includes(name)) {
-    savedRecipes.push(name);
-    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    alert(`${name} saved!`);
-    updateSavedRecipes();
-  } else {
-    alert(`${name} is already saved!`);
-  }
-}
-
-// Remove recipe from localStorage
-function removeRecipe(name) {
-  const index = savedRecipes.indexOf(name);
-  if (index !== -1) {
-    savedRecipes.splice(index, 1);
-    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-    alert(`${name} removed!`);
-    updateSavedRecipes();
-  } else {
-    alert(`${name} is not in the saved list!`);
-  }
-}
-
-// Update saved recipes list
-function updateSavedRecipes() {
-  const savedList = document.getElementById('saved-recipes-list');
-  savedList.innerHTML = savedRecipes.map(recipe => `<li>${recipe}</li>`).join('');
-}
-
-// Clear all saved recipes
-document.getElementById('clear-saved').addEventListener('click', () => {
-  savedRecipes = [];
-  localStorage.removeItem('savedRecipes');
-  alert('All saved recipes cleared!');
-  updateSavedRecipes();
+document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayRecipes();
+    }
 });
 
-// Filter recipes
-document.getElementById('quick-filter').addEventListener('change', filterRecipes);
-document.getElementById('vegetarian-filter').addEventListener('change', filterRecipes);
+document.getElementById('next-page').addEventListener('click', () => {
+    if (currentPage * recipesPerPage < recipes.length) {
+        currentPage++;
+        displayRecipes();
+    }
+});
 
-function filterRecipes() {
-  const quickFilter = document.getElementById('quick-filter').checked;
-  const vegetarianFilter = document.getElementById('vegetarian-filter').checked;
+// Show Recipe Details in Modal
+function showRecipeDetails(title) {
+    const recipe = recipes.find(r => r.title === title);
+    document.getElementById('recipe-title').textContent = recipe.title;
+    document.getElementById('recipe-description').textContent = recipe.description;
+    document.getElementById('recipe-ingredients').innerHTML = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+    document.getElementById('recipe-instructions').textContent = recipe.instructions;
 
-  const filteredRecipes = recipes.filter(recipe
+    document.getElementById('recipe-modal').style.display = 'block';
+}
+
+// Close Recipe Modal
+document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('recipe-modal').style.display = 'none';
+});
+
+// Save Recipe
+function saveRecipe(title) {
+    const recipe = recipes.find(r => r.title === title);
+    if (!savedRecipes.includes(recipe)) {
+        savedRecipes.push(recipe);
+        localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+        updateSavedRecipesList();
+    }
+}
+
+// Update Saved Recipes List
+function updateSavedRecipesList() {
+    const savedRecipesList = document.getElementById('saved-recipes-list');
+    savedRecipesList.innerHTML = "";
+    savedRecipes.forEach(recipe => {
+        const listItem = document.createElement('li');
+        listItem.textContent = recipe.title;
+        savedRecipesList.appendChild(listItem);
+    });
+}
+
+// Clear Saved Recipes
+document.getElementById('clear-saved-recipes').addEventListener('click', () => {
+    savedRecipes = [];
+    localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+    updateSavedRecipesList();
+});
+
+// Shopping List Feature
+function addToShoppingList(ingredients) {
+    ingredients.forEach(ingredient => {
+        if (!shoppingList.includes(ingredient)) {
+            shoppingList.push(ingredient);
+        }
+    });
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+    updateShoppingList();
+}
+
+// Update Shopping List
+function updateShoppingList() {
+    const shoppingListItems = document.getElementById('shopping-list-items');
+    shoppingListItems.innerHTML = "";
+    shoppingList.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        shoppingListItems.appendChild(listItem);
+    });
+}
+
+// Clear Shopping List
+document.getElementById('clear-shopping-list').addEventListener('click', () => {
+    shoppingList = [];
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+    updateShoppingList();
+});
+
+// Init App
+document.addEventListener('DOMContentLoaded', () => {
+    displayRecipes();
+    updateSavedRecipesList();
+    updateShoppingList();
+});
